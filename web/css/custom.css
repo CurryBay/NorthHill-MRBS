@@ -3,7 +3,7 @@
 /* Map */
 
 div.roommap{
-   content:url(http://nhrprbooking.000webhostapp.com/images/nhrpr.png);
+   content:url(http://http://nhrprbooking.epizy.com/images/nhrpr.png);
    width: 600px; /* you can use % */ 
    height: auto;
    margin:0px;
@@ -31,7 +31,7 @@ div.roommap{
 }
 
 div.map{
-   content:url(http://nhrprbooking.000webhostapp.com/images/nhrpr.png);
+   content:url(http://nhrprbooking.epizy.com/images/nhrpr.png);
    /*width: 500px; /* you can use % */ 
    height: auto;
    margin:0px;

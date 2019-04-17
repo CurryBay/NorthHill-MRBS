@@ -46,20 +46,20 @@ $dbsys = "mysqli";
 // to use Unix Domain Sockets instead of TCP/IP. For mysql/mysqli "localhost"
 // tells the system to use Unix Domain Sockets, and $db_port will be ignored;
 // if you want to force TCP connection you can use "127.0.0.1".
-$db_host = "localhost";
+$db_host = "sql308.epizy.com";
 // If you need to use a non standard port for the database connection you
 // can uncomment the following line and specify the port number
 // $db_port = 1234;
 // Database name:
-$db_database = "id650970_mrbs";
+$db_database = "epiz_23783907_mrbs";
 // Schema name.  This only applies to PostgreSQL and is only necessary if you have more
 // than one schema in your database and also you are using the same MRBS table names in
 // multiple schemas.
 //$db_schema = "public";
 // Database login user name:
-$db_login = "id650970_mrbs_user";
+$db_login = "epiz_23783907";
 // Database login password:
-$db_password = 'password';
+$db_password = 'sTR8BV3M';
 // Prefix for table names.  This will allow multiple installations where only
 // one database is available
 $db_tbl_prefix = "mrbs_";
@@ -104,7 +104,10 @@ $auth['allow_local_part_email'] = true;
 // Use the $custom_css_url to override the standard MRBS CSS.
 $custom_css_url = 'css/custom.css';
 
-// max bookings
+// Set a maximum duration for bookings
+$max_duration_enabled = TRUE; // Set to TRUE if you want to enforce a maximum duration
+$max_duration_secs = 60*60*2;  // (seconds) - when using "times"
+
 $max_per_interval_global_enabled['week']   = TRUE;
 $max_per_interval_global['week'] = 2;     // max 5 bookings per week in total
 

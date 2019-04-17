@@ -540,7 +540,7 @@ function cell_html($cell, $query_strings, $is_invalid = FALSE)
                  "\">\n";
         $html .= "<a href=\"view_entry.php?id=$id&amp;". $query_strings['booking'] . "\" title=\"$long_descr\">";
         $html .= ($is_repeat) ? "<img class=\"repeat_symbol $c\" src=\"images/repeat.png\" alt=\"" . get_vocab("series") . "\" title=\"" . get_vocab("series") . "\" width=\"10\" height=\"10\">" : '';
-        $html .= "$descr</a>\n";
+        $html .= "$descr</a><div style=\"clear: left; padding: 02px\">$long_descr</div>\n\n";
         $html .= "</div>\n";
       }
       $html .= "</td>\n";

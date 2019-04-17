@@ -317,7 +317,6 @@ table.dwm_main {
 
 .dwm_main a {
   display: block;
-  min-height: inherit;
   word-wrap: break-word;
   word-break: break-all;
 }
