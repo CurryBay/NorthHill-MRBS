@@ -3,28 +3,28 @@
 /* Map */
 
 div.roommap{
-   content:url(http://http://nhrprbooking.epizy.com/images/nhrpr.png);
-   width: 600px; /* you can use % */ 
+   content:url(http://nhrprbooking.epizy.com/images/nhrpr.png);
+   width: 500px; /* you can use % */
    height: auto;
    margin:0px;
    float: left;
 }​
 
 /* iPhone*/
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px)  { 
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px)  {
 	div.map{
 		width: 300px;
 	}
 }
 
 /* Ipad */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
 	div.map{
 		width: 300px;
 	}
 }
 
-@media only screen and (min-device-width : 1024px)  { 
+@media only screen and (min-device-width : 1024px)  {
 	div.map{
 		width: 500px;
 	}
@@ -32,9 +32,8 @@ div.roommap{
 
 div.map{
    content:url(http://nhrprbooking.epizy.com/images/nhrpr.png);
-   /*width: 500px; /* you can use % */ 
+   width: 33%; /* you can use % */
    height: auto;
    margin:0px;
    float: left;
 }​
-

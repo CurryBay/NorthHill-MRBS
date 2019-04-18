@@ -27,7 +27,7 @@ if (isset($delete_x))
   header("Location: $location");
   exit;
 }
-  
+
 // Check the user is authorised for this page
 checkAuthorised();
 
@@ -95,7 +95,7 @@ else
     echo "<form id=\"areaChangeForm\" method=\"get\" action=\"" . htmlspecialchars(this_page()) . "\">\n";
     echo "<fieldset>\n";
     echo "<legend></legend>\n";
-  
+
     // The area selector
     echo "<label id=\"area_label\" for=\"area_select\">" . get_vocab("area") . ":</label>\n";
     echo "<select class=\"room_area_select\" id=\"area_select\" name=\"area\" onchange=\"this.form.submit()\">";
@@ -131,15 +131,15 @@ else
       echo "</optgroup>\n";
     }
     echo "</select>\n";
-  
+
     // Some hidden inputs for current day, month, year
     echo "<input type=\"hidden\" name=\"day\" value=\"$day\">\n";
     echo "<input type=\"hidden\" name=\"month\" value=\"$month\">\n";
     echo "<input type=\"hidden\" name=\"year\"  value=\"$year\">\n";
-  
+
     // The change area button (won't be needed or displayed if JavaScript is enabled)
     echo "<input type=\"submit\" name=\"change\" class=\"js_none\" value=\"" . get_vocab("change") . "\">\n";
-  
+
     // If they're an admin then give them edit and delete buttons for the area
     // and also a form for adding a new area
     if ($is_admin)
@@ -150,7 +150,7 @@ else
       echo "<input type=\"image\" class=\"button\" name=\"delete\" src=\"images/delete.png\"
              title=\"" . get_vocab("delete") . "\" alt=\"" . get_vocab("delete") . "\">\n";
     }
-  
+
     echo "</fieldset>\n";
     echo "</form>\n";
   }
@@ -163,14 +163,14 @@ if ($is_admin)
   <form id="add_area" class="form_admin" action="add.php" method="post">
     <fieldset>
     <legend><?php echo get_vocab("addarea") ?></legend>
-        
+
       <input type="hidden" name="type" value="area">
 
       <div>
         <label for="area_name"><?php echo get_vocab("name") ?>:</label>
         <input type="text" id="area_name" name="name" maxlength="<?php echo $maxlength['area.area_name'] ?>">
       </div>
-          
+
       <div>
         <input type="submit" class="submit" value="<?php echo get_vocab("addarea") ?>">
       </div>
@@ -196,19 +196,19 @@ if ($is_admin || ($n_displayable_areas > 0))
   echo "<h2>\n";
   echo get_vocab("rooms");
   if(isset($area_name))
-  { 
-    echo " " . get_vocab("in") . " " . htmlspecialchars($area_name); 
+  {
+    echo " " . get_vocab("in") . " " . htmlspecialchars($area_name);
   }
   echo "</h2>\n";
 
 
-  // Display map
-  if(!strcmp(htmlspecialchars($area_name), "North Hill"))
-  {
-    // NHRPR map
-    echo "<div class=\"roommap\">\n";
-    echo "</div>\n";
-  }
+  // // Display map
+  // if(!strcmp(htmlspecialchars($area_name), "North Hill"))
+  // {
+  //   // NHRPR map
+  //   echo "<div class=\"roommap\">\n";
+  //   echo "</div>\n";
+  // }
 
 
   echo "<div id=\"room_form\">\n";
@@ -224,7 +224,7 @@ if ($is_admin || ($n_displayable_areas > 0))
     {
        // Get the information about the fields in the room table
       $fields = db()->field_info($tbl_room);
-    
+
       // Build an array with the room info and also see if there are going
       // to be any rooms to display (in other words rooms if you are not an
       // admin whether any rooms are enabled)
@@ -251,7 +251,7 @@ if ($is_admin || ($n_displayable_areas > 0))
         // the table (eg if you are running PostgreSQL and have upgraded your
         // database)
         echo "<table id=\"rooms_table\" class=\"admin_table display\">\n";
-        
+
         // The header
         echo "<thead>\n";
         echo "<tr>\n";
@@ -287,15 +287,15 @@ if ($is_admin || ($n_displayable_areas > 0))
             echo "<th>$text</th>\n";
           }
         }
-        
+
         if ($is_admin)
         {
           echo "<th>&nbsp;</th>\n";
         }
-        
+
         echo "</tr>\n";
         echo "</thead>\n";
-        
+
         // The body
         echo "<tbody>\n";
         $row_class = "odd";
@@ -335,7 +335,7 @@ if ($is_admin || ($n_displayable_areas > 0))
                     break;
                   // any user defined fields
                   default:
-                    if (($field['nature'] == 'boolean') || 
+                    if (($field['nature'] == 'boolean') ||
                         (($field['nature'] == 'integer') && isset($field['length']) && ($field['length'] <= 2)) )
                     {
                       // booleans: represent by a checkmark
@@ -363,20 +363,20 @@ if ($is_admin || ($n_displayable_areas > 0))
                 }  // switch
               }  // if
             }  // foreach
-            
+
             // Give admins a delete link
             if ($is_admin)
             {
               // Delete link
               echo "<td><div>\n";
               echo "<a href=\"del.php?type=room&amp;area=$area&amp;room=" . $r['id'] . "\">\n";
-              echo "<img src=\"images/delete.png\" width=\"16\" height=\"16\" 
+              echo "<img src=\"images/delete.png\" width=\"16\" height=\"16\"
                          alt=\"" . get_vocab("delete") . "\"
                          title=\"" . get_vocab("delete") . "\">\n";
               echo "</a>\n";
               echo "</div></td>\n";
             }
-            
+
             echo "</tr>\n";
           }
         }
@@ -384,7 +384,7 @@ if ($is_admin || ($n_displayable_areas > 0))
         echo "</tbody>\n";
         echo "</table>\n";
         echo "</div>\n";
-        
+
       }
     }
   }
@@ -393,7 +393,7 @@ if ($is_admin || ($n_displayable_areas > 0))
     echo get_vocab("noarea");
   }
 
-  // Give admins a form for adding rooms to the area - provided 
+  // Give admins a form for adding rooms to the area - provided
   // there's an area selected
   if ($is_admin && $areas_defined && !empty($area))
   {
@@ -401,20 +401,20 @@ if ($is_admin || ($n_displayable_areas > 0))
     <form id="add_room" class="form_admin" action="add.php" method="post">
       <fieldset>
       <legend><?php echo get_vocab("addroom") ?></legend>
-        
+
         <input type="hidden" name="type" value="room">
         <input type="hidden" name="area" value="<?php echo $area; ?>">
-        
+
         <div>
           <label for="room_name"><?php echo get_vocab("name") ?>:</label>
           <input type="text" id="room_name" name="name" maxlength="<?php echo $maxlength['room.room_name'] ?>">
         </div>
-        
+
         <div>
           <label for="room_description"><?php echo get_vocab("description") ?>:</label>
           <input type="text" id="room_description" name="description" maxlength="<?php echo $maxlength['room.description'] ?>">
         </div>
-        
+
         <div>
           <label for="room_capacity"><?php echo get_vocab("capacity") ?>:</label>
           <input type="text" id="room_capacity" name="capacity">
@@ -424,11 +424,11 @@ if ($is_admin || ($n_displayable_areas > 0))
           <label for="room_admin_email"><?php echo get_vocab("room_admin_email") ?>:</label>
           <input type="text" id="room_admin_email" name="room_admin_email">
         </div>
-       
+
         <div>
           <input type="submit" class="submit" value="<?php echo get_vocab("addroom") ?>">
         </div>
-        
+
       </fieldset>
     </form>
   <?php
@@ -437,4 +437,3 @@ if ($is_admin || ($n_displayable_areas > 0))
 }
 
 output_trailer();
-
