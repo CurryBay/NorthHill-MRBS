@@ -19,7 +19,7 @@ namespace MRBS;
 /**********
  * Timezone
  **********/
- 
+
 // The timezone your meeting rooms run in. It is especially important
 // to set this if you're using PHP 5 on Linux. In this configuration
 // if you don't, meetings in a different DST than you are currently
@@ -101,6 +101,10 @@ $mrbs_company = "North Hill";   // This line must always be uncommented ($mrbs_c
 
 $auth['allow_local_part_email'] = true;
 
+// Default description for new bookings
+// Didnt work, changed edit_entry.php instead
+$default_description = $user;
+
 // Use the $custom_css_url to override the standard MRBS CSS.
 $custom_css_url = 'css/custom.css';
 
@@ -138,7 +142,7 @@ $max_level = 2;
 // The lowest level of admin allowed to edit other users
 $min_user_viewing_level = 2;
 // The lowest level of admin allowed to edit other users
-$min_user_editing_level = 2;; 
+$min_user_editing_level = 2;;
 
 // $auth["type"] = "imap_php";
 // $auth["imap_php"]["hostname"] = "outlook.office365.com";
@@ -201,7 +205,7 @@ $mail_settings['room_admin_on_bookings'] = FALSE;  // the room administrator
 $mail_settings['booker']                 = TRUE;  // the person making the booking
 $mail_settings['book_admin_on_approval'] = FALSE;  // the booking administrator when booking approval is enabled
                                                    // (which is the MRBS admin, but this setting allows MRBS
-                                                   // to be extended to have separate booking approvers)    
+                                                   // to be extended to have separate booking approvers)
 
 // WHEN TO EMAIL
 // -------------
@@ -211,7 +215,7 @@ $mail_settings['book_admin_on_approval'] = FALSE;  // the booking administrator 
 // (Note:  (a) the variables $mail_settings['admin_on_delete'] and
 // $mail_settings['admin_all'], which were used in MRBS versions 1.4.5 and
 // before are now deprecated.   They are still supported for reasons of backward
-// compatibility, but they may be withdrawn in the future.  (b)  the default 
+// compatibility, but they may be withdrawn in the future.  (b)  the default
 // value of $mail_settings['on_new'] is TRUE for compatibility with MRBS 1.4.5
 // and before, where there was no explicit config setting, but mails were always sent
 // for new bookings if there was somebody to send them to)
@@ -246,7 +250,7 @@ $mail_settings['admin_lang'] = 'en';   // Default is 'en'.
 // The email addresses of the MRBS administrator are set in the config file, and
 // those of the room and area administrators are set though the edit_area_room.php
 // in MRBS.    But if you have set $mail_settings['booker'] above to TRUE, MRBS will
-// need the email addresses of ordinary users.   If you are using the "db" 
+// need the email addresses of ordinary users.   If you are using the "db"
 // authentication method then MRBS will be able to get them from the users table.  But
 // if you are using any other authentication scheme then the following settings allow
 // you to specify a domain name that will be appended to the username to produce a
@@ -271,9 +275,9 @@ $mail_settings['admin_backend'] = 'mail';
 $mail_settings['from'] = "re.club.ntu@gmail.com";
 
 // The address to be used for the ORGANIZER in an iCalendar event.   Do not make
-// this email address the same as the admin email address or the recipients 
+// this email address the same as the admin email address or the recipients
 // email address because on some mail systems, eg IBM Domino, the iCalendar email
-// notification is silently discarded if the organizer's email address is the same 
+// notification is silently discarded if the organizer's email address is the same
 // as the recipient's.  On other systems you may get a "Meeting not found" message.
 $mail_settings['organizer'] = '';
 
@@ -315,7 +319,7 @@ $mail_settings['disabled'] = FALSE;
 // alter the string "Meeting Room Booking System" in English set
 //
 $vocab_override['en']['namebooker'] = "Purpose of booking";
-$vocab_override['en']['fulldescription'] = "People involved:<br>&nbsp;&nbsp;(Names of people<br>&nbsp;&nbsp;and batch)";
+$vocab_override['en']['fulldescription'] = "People involved:\n(Names of people\nand batch)";
 $vocab_override['en']['type'] = "Internal/External to REP";
 $vocab_override['en']['description'] = "People involved";
 $vocab_override['en']['users.email'] = "NTU email address";
