@@ -57,7 +57,7 @@ echo "</div>\n";
 // find the last non-hidden day
 $d = $day;
 do
-{  
+{
   $d--;
   $i= mktime(12,0,0,$month,$d,$year);
 }
@@ -82,7 +82,7 @@ $td = date("d",$i);
 
 // Show current date and timezone
 echo "<div id=\"dwm\">\n";
-echo "<h2>" . utf8_strftime($strftime_format['date'], $timestamp) . "</h2>\n";
+echo "<h2 id=\"date_display\">" . utf8_strftime($strftime_format['date'], $timestamp) . "</h2><br>\n";
 if ($display_timezone)
 {
   echo "<div class=\"timezone\">";
@@ -90,7 +90,7 @@ if ($display_timezone)
   echo "</div>\n";
 }
 echo "</div>\n";
-  
+
 // Generate Go to day before and after links
 $href_before = "day.php?area=$area$room_param&amp;year=$yy&amp;month=$ym&amp;day=$yd";
 $href_now    = "day.php?area=$area$room_param";
@@ -104,12 +104,12 @@ $before_after_links_html = "
 </nav>\n";
 
 // and output them
-echo $before_after_links_html;
+//echo $before_after_links_html;
 
 echo "<table class=\"dwm_main\" id=\"day_main\" data-resolution=\"$resolution\">\n";
 echo $inner_html;
 echo "</table>\n";
-  
+
 echo $before_after_links_html;
 
 show_colour_key();
@@ -121,4 +121,3 @@ if ($display_calendar_bottom)
 
 
 output_trailer();
-
