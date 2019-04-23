@@ -113,7 +113,7 @@ $max_duration_enabled = TRUE; // Set to TRUE if you want to enforce a maximum du
 $max_duration_secs = 60*60*2;  // (seconds) - when using "times"
 
 $max_per_interval_global_enabled['week']   = TRUE;
-$max_per_interval_global['week'] = 2;     // max 5 bookings per week in total
+$max_per_interval_global['week'] = 10;     // max 10 bookings per week in total
 
 $is_mandatory_field['entry.description'] = TRUE;
 
